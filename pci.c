@@ -197,6 +197,8 @@ static irqreturn_t irq_handler(int irq, void *dev)
 			pr_info("receive a DMA write interrupter!\n");
 		}else if(irq_status == 0x1){
 			pr_info("receive a FACTORIAL interrupter!\n");
+		}else if(irq_status == 0x2){
+			pr_info("receive a SQRT interrupter!\n");
 		}
 		pr_info("irq_handler irq = %d dev = %d irq_status = %llx\n",
 				irq, devi, (unsigned long long)irq_status);
