@@ -16,7 +16,7 @@
 
 
 #define FACTORIA_VAL 0x8
-#define SQRT_VAL 0x10
+#define SQRT_VAL 0x18
 #define IO_FACTORIA_IRQ 0x20
 #define IO_IRQ_STATUS 0x24
 #define IO_IRQ_RAISE 0x60
@@ -36,9 +36,9 @@
 #define DMA_READ_CMD    _IO(MAGIC,0x1a)
 #define DMA_WRITE_CMD    _IO(MAGIC,0x1b)
 #define PRINT_EDUINFO_CMD    _IO(MAGIC,0x1c)
-#define SEND_INTERRUPT_CMD    _IO(MAGIC,0x1d)
+// #define SEND_INTERRUPT_CMD    _IO(MAGIC,0x1d)
 #define FACTORIAL_CMD    _IO(MAGIC,0x1e)
-#define SQRT_CMD    _IO(MAGIC,0x1f)
+#define SQRT_CMD    _IO(MAGIC,0x1d)
 
 static struct pci_device_id pci_ids[] = {
 	{ PCI_DEVICE(QEMU_VENDOR_ID, EDU_DEVICE_ID), },
@@ -142,9 +142,9 @@ static long edu_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 					pr_info("io %x %x\n", i, ioread32((void*)(mmio + i)));
 			}
 			break;
-		case SEND_INTERRUPT_CMD:
-			iowrite32(0x12345678, mmio + IO_IRQ_RAISE);
-			break;
+		// case SEND_INTERRUPT_CMD:
+		// 	iowrite32(0x12345678, mmio + IO_IRQ_RAISE);
+		// 	break;
 		case FACTORIAL_CMD:
 			iowrite32(0x80, mmio + IO_FACTORIA_IRQ);
 			msleep(1000);
