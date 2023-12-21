@@ -9,9 +9,9 @@
 #define DMA_READ_CMD    _IO(MAGIC,0x1a)
 #define DMA_WRITE_CMD    _IO(MAGIC,0x1b)
 #define PRINT_EDUINFO_CMD    _IO(MAGIC,0x1c)
-// #define SEND_INTERRUPT_CMD    _IO(MAGIC,0x1d)
+#define SEND_INTERRUPT_CMD    _IO(MAGIC,0x1d)
 #define FACTORIAL_CMD    _IO(MAGIC,0x1e)
-#define SQRT_CMD    _IO(MAGIC,0x1d)
+#define SQRT_CMD    _IO(MAGIC,0x1f)
 
 
 int main(void)
@@ -28,10 +28,10 @@ int main(void)
         printf("ioctl: %d\n", ret);
     }
     
-    // ret = ioctl(fd, SEND_INTERRUPT_CMD);
-    // if (ret < 0) {
-    //     printf("ioctl: %d\n", ret);
-    // }
+    ret = ioctl(fd, SEND_INTERRUPT_CMD);
+    if (ret < 0) {
+        printf("ioctl: %d\n", ret);
+    }
     
     ret = ioctl(fd, FACTORIAL_CMD);
     if (ret < 0) {
