@@ -153,7 +153,7 @@ static long edu_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 			pr_info("computing result %x\n", ioread32((void*)(mmio + FACTORIA_VAL)));
 			break;
 		case SQRT_CMD:
-			iowrite32(0x2, mmio + SQRT_VAL);
+			iowrite32(0xA, mmio + SQRT_VAL);
 			msleep(1000);
 			pr_info("computing result %x\n", ioread32((void*)(mmio + SQRT_VAL)));
 			break;
