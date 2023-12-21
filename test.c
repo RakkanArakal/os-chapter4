@@ -11,7 +11,7 @@
 #define PRINT_EDUINFO_CMD    _IO(MAGIC,0x1c)
 #define SEND_INTERRUPT_CMD    _IO(MAGIC,0x1d)
 #define FACTORIAL_CMD    _IO(MAGIC,0x1e)
-
+#define SQRT_CMD    _IO(MAGIC,0x1f)
 
 
 int main(void)
@@ -34,6 +34,11 @@ int main(void)
     }
     
     ret = ioctl(fd, FACTORIAL_CMD);
+    if (ret < 0) {
+        printf("ioctl: %d\n", ret);
+    }
+
+    ret = ioctl(fd, SQRT_CMD);
     if (ret < 0) {
         printf("ioctl: %d\n", ret);
     }
