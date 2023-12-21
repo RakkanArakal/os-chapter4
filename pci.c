@@ -124,13 +124,7 @@ static long edu_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 			iowrite32(DMA_CMD|DMA_TO_MEM|DMA_IRQ, mmio + IO_DMA_CMD);
 			msleep(1000);
 			break;
-		
-
-		case PRINT_TEST_CMD:
-			pr_info("test!");
-			msleep(1000);
-			break;
-
+	
 		case PRINT_EDUINFO_CMD:
 			if ((pci_resource_flags(pdev, BAR) & IORESOURCE_MEM) != IORESOURCE_MEM) {
 				dev_err(&(pdev->dev), "pci_resource_flags\n");
