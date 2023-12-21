@@ -155,9 +155,9 @@ static long edu_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 		case SQRT_CMD:
 			iowrite32(0x80, mmio + IO_FACTORIA_IRQ);
 			msleep(1000);
-			iowrite32(0x4, mmio + IO_FACTORIA_IRQ);
+			iowrite32(0x4, mmio + FACTORIA_VAL);
 			msleep(1000);
-			pr_info("computing sqrt result %x\n", ioread32((void*)(mmio + IO_FACTORIA_IRQ)));
+			pr_info("computing sqrt result %x\n", ioread32((void*)(mmio + FACTORIA_VAL)));
 			break;
 			
 
