@@ -16,8 +16,8 @@
 
 
 #define FACTORIA_VAL 0x8
-#define SQRT_VAL 0x14
-#define IO_SQRT_IRQ 0x18
+#define SQRT_VAL 0x10
+// #define IO_SQRT_IRQ 0x18
 #define IO_FACTORIA_IRQ 0x20
 #define IO_IRQ_STATUS 0x24
 #define IO_IRQ_RAISE 0x60
