@@ -38,10 +38,10 @@ int main(void)
         printf("ioctl: %d\n", ret);
     }
 
-    ret = ioctl(fd, SQRT_CMD);
-    if (ret < 0) {
-        printf("ioctl: %d\n", ret);
-    }
+    // ret = ioctl(fd, SQRT_CMD);
+    // if (ret < 0) {
+    //     printf("ioctl: %d\n", ret);
+    // }
     
     ret = ioctl(fd, DMA_WRITE_CMD);
     if (ret < 0) {
