@@ -17,7 +17,7 @@
 
 #define FACTORIA_VAL 0x8
 #define SQRT_VAL 0x10
-// #define IO_SQRT_IRQ 0x18
+#define IO_SQRT_IRQ 0x18
 #define IO_FACTORIA_IRQ 0x20
 #define IO_IRQ_STATUS 0x24
 #define IO_IRQ_RAISE 0x60
@@ -154,12 +154,12 @@ static long edu_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 			pr_info("computing result %x\n", ioread32((void*)(mmio + FACTORIA_VAL)));
 			break;
 		case SQRT_CMD:
-			// iowrite32(0x80, mmio + IO_SQRT_IRQ);
-			// msleep(1000);
-			// iowrite32(0xA, mmio + SQRT_VAL);
-			// msleep(1000);
-			// pr_info("computing sqrt result %x\n", ioread32((void*)(mmio + SQRT_VAL)));
-			iowrite32(0x87654321, mmio + SQRT_VAL);
+			iowrite32(0x80, mmio + IO_SQRT_IRQ);
+			msleep(1000);
+			iowrite32(0xA, mmio + SQRT_VAL);
+			msleep(1000);
+			pr_info("computing sqrt result %x\n", ioread32((void*)(mmio + SQRT_VAL)));
+			// iowrite32(0x87654321, mmio + SQRT_VAL);
 			break;
 			
 
