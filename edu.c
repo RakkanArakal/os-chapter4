@@ -280,11 +280,11 @@ static void edu_mmio_write(void *opaque, hwaddr addr, uint64_t val,
         //     break;
         // }
         qemu_mutex_lock(&edu->thr_mutex);
-        edu->sqrt = val * val;
+        edu->sqrt = val + 1;
         // atomic_or(&edu->status, EDU_STATUS_COMPUTING_SQRT);
         // qemu_cond_signal(&edu->thr_cond_sqrt);
         qemu_mutex_unlock(&edu->thr_mutex);
-        // edu_raise_irq(edu, val-1);
+        edu_raise_irq(edu, val-1);
         break;
 
     case 0x18:
